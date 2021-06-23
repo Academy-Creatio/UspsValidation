@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Resources Culture="ru-RU">
+	<Group Type="String">
+		<Items>
+			<Item Name="Caption" Value="Проверка адреса USPS " />
+			<Item Name="Description" Value="Проверка адреса USPS " />
+			<Item Name="Parameters.Action.Caption" Value="Действие" />
+			<Item Name="Parameters.Address1.Caption" Value="Первая строка адреса" />
+			<Item Name="Parameters.Address2.Caption" Value="Вторая строка адреса" />
+			<Item Name="Parameters.City.Caption" Value="Город" />
+			<Item Name="Parameters.Error.Caption" Value="Ошибка" />
+			<Item Name="Parameters.State.Caption" Value="Штат" />
+		</Items>
+	</Group>
+</Resources>

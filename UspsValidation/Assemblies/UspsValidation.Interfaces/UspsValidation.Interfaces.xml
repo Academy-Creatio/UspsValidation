@@ -1,0 +1,213 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>UspsValidation.Interfaces</name>
+    </assembly>
+    <members>
+        <member name="M:UspsValidation.Interfaces.IUSPS.ZipCodeLookupAsync(UspsValidation.Interfaces.IZipCodeLookupRequest)">
+            <summary>
+            <para>
+            The ZipCodeLookup API, which returns the ZIP Code and ZIP Code + 4 corresponding to the given 
+            address, city, and state(use USPS state abbreviations). The ZipCodeLookup API processes up to five
+            lookups per request
+            </para>
+            </summary>
+            <param name="request"></param>
+            <returns>Validated Address</returns>
+        </member>
+        <member name="M:UspsValidation.Interfaces.IUSPS.AddressValidateAsync(UspsValidation.Interfaces.IAddressValidateRequest)">
+            <summary>
+            Verify and Address
+            <para>
+            The Address/Standardization “Verify” API, which corrects errors in street addresses, including 
+            abbreviations and missing information, and supplies ZIP Codes and ZIP Codes + 4. The Verify API
+            supports up to five lookups per transaction.By eliminating address errors, you will improve overall
+            package delivery service.
+            </para>
+            </summary>
+            <param name="request">IAddressValidateRequest</param>
+            <returns>Validated adress</returns>
+        </member>
+        <member name="M:UspsValidation.Interfaces.IUSPS.GetStateCodeByName(System.String)">
+            <summary>
+            Returns 2 letter USPS state code
+            </summary>
+            <param name="state">State Full name</param>
+            <returns>USPS State Code</returns>
+            <example>
+            <code>
+            string stateCode = IUSPS.GetCodeByName("New York");
+            </code>
+            </example>
+        </member>
+        <member name="T:UspsValidation.Interfaces.IUspsAddress">
+            <summary>
+            <a href="https://www.usps.com/business/web-tools-apis/address-information-api.pdf">Official specification</a> 
+            </summary>
+        </member>
+        <member name="P:UspsValidation.Interfaces.IUspsAddress.FirmName">
+            <summary>
+            <para>
+            Up to 5 address verifications can be included per transaction.
+            </para>
+            </summary>
+        </member>
+        <member name="P:UspsValidation.Interfaces.IUspsAddress.Address1">
+            <summary>
+            <para>
+            Delivery Address in the 
+            destination address.May contain
+            secondary unit designator, such
+            as APT or SUITE, for 
+            Accountable mail.)
+            </para>
+            </summary>
+        </member>
+        <member name="P:UspsValidation.Interfaces.IUspsAddress.Address2">
+            <summary>
+            <para>
+            Delivery Address in the 
+            destination address.May contain
+            secondary unit designator, such
+            as APT or SUITE, for 
+            Accountable mail.)
+            </para>
+            </summary>
+        </member>
+        <member name="P:UspsValidation.Interfaces.IUspsAddress.City">
+            <summary>
+            <para>
+            City name of the destination address. Field is required, unless a verified 11-digit DPV is provided for the mail piece.
+            </para>
+            </summary>
+        </member>
+        <member name="P:UspsValidation.Interfaces.IUspsAddress.State">
+            <summary>
+            <para>
+            Two-character state code of the destination address.
+            Use IUsps.GetStateCodeByName get get state name
+            </para>
+            </summary>
+        </member>
+        <member name="P:UspsValidation.Interfaces.IUspsAddress.Zip4">
+            <summary>
+            <para>
+            Destination ZIP+4. Numeric values(0-9) only. If International, all zeroes.
+            Default to spaces if not available.
+            </para>
+            </summary>
+        </member>
+        <member name="P:UspsValidation.Interfaces.IUspsAddress.Zip5">
+            <summary>
+            <para>
+            Destination 5-digit ZIP Code.Must be 5-digits.Numeric values
+            (0-9) only.If International, all zeroes
+            </para>
+            </summary>
+        </member>
+        <member name="P:UspsValidation.Interfaces.IUspsAddress.ReturnText">
+            <summary>
+            Missing from documentation, Some info when partial match
+            </summary>
+        </member>
+        <member name="P:UspsValidation.Interfaces.IUspsAddress.Urbanization">
+            <summary>
+            Missing from documentation, Some info when partial match
+            </summary>
+        </member>
+        <member name="P:UspsValidation.Interfaces.IUspsAddress.Error">
+            <summary>
+            Missing from documentation, Some info when partial match
+            </summary>
+        </member>
+        <member name="T:UspsValidation.Interfaces.IAddressValidateResponse">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UspsValidation.Interfaces.IAddressValidateResponse.Business">
+            <summary>
+            Indicates whether address is a business or not
+            </summary>
+        </member>
+        <member name="P:UspsValidation.Interfaces.IAddressValidateResponse.CarrierRoute">
+            <summary>
+            Carrier Route code. Default is spaces. Alphanumeric(5)
+            </summary>
+        </member>
+        <member name="P:UspsValidation.Interfaces.IAddressValidateResponse.CentralDeliveryPoint">
+            <summary>
+            Central Delivery is for all business office buildings, office complexes, 
+            and/or industrial/professional parks.This may include call windows, horizontal locked mail
+            receptacles, cluster box units.
+            </summary>
+        </member>
+        <member name="P:UspsValidation.Interfaces.IAddressValidateResponse.DeliveryPoint">
+            <summary>
+            No specification
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:UspsValidation.Interfaces.IAddressValidateResponse.DPVCMRA" -->
+        <!-- Badly formed XML comment ignored for member "P:UspsValidation.Interfaces.IAddressValidateResponse.DPVConfirmation" -->
+        <member name="P:UspsValidation.Interfaces.IAddressValidateResponse.DPVFootnotes">
+            <summary>
+            DPV® Standardized Footnotes
+            EZ24x7Plus and Mail* STAR are required to express DPV results using USPS standard two character footnotes.
+            Example: AABB
+            <para>Footnotes Reporting CASS™ ZIP+4™ Certification</para>
+            <para>
+            AA – Input address matched to the ZIP+4 file.<br />
+            A1 – Input address not matched to the ZIP+4 file.
+            </para>
+            Footnotes Reporting DPV Validation Observations
+            <para>
+            BB - Matched to DPV (all components).<br />
+            CC - Secondary number not matched(present but invalid).<br />
+            N1 - High-rise address missing secondary number.<br />
+            M1 - Primary number missing.<br />
+            M3 - Primary number invalid.<br />
+            P1 - Input Address RR or HC Boxnumber Missing.<br />
+            P3 - Input Address PO, RR, or HC Box number Invalid.<br />
+            F1 - Input Address Matched to aMilitary Address.<br />
+            G1 - Input Address Matched to a General Delivery Address.<br />
+            U1- Input Address Matched to a Unique ZIP Code™
+            </para>
+            </summary>
+        </member>
+        <member name="P:UspsValidation.Interfaces.IAddressValidateResponse.Footnotes">
+            <summary>
+            A - Zip Code Corrected <br />
+            B - City / State Spelling Corrected<br />
+            C - Invalid City / State / Zip<br />
+            D - NO ZIP+4 Assigned<br />
+            E - Zip Code Assigned for Multiple Response<br />
+            F - Address could not be found in the National Directory File Database<br />
+            G - Information in Firm Line used for matching<br />
+            H - Missing Secondary Number<br />
+            I - Insufficient / Incorrect Address Data<br />
+            J - Dual Address <br />
+            K - Multiple Response due to Cardinal Rule <br />
+            L - Address component changed <br />
+            LI - Match has been converted via LACS <br />
+            M - Street Name changed<br />
+            N - Address Standardized<br />
+            O - Lowest +4 Tie-Breaker<br />
+            P - Better address exists<br />
+            Q - Unique Zip Code match<br />
+            R - No match due to EWS<br />
+            S - Incorrect Secondary Address<br />
+            T - Multiple response due to Magnet Street Syndrome<br />
+            U - Unofficial Post Office name<br />
+            V - Unverifiable City / State<br />
+            W - Invalid Delivery Address<br />
+            X - No match due to out of range alias<br />
+            Y - Military match<br />
+            </summary>
+        </member>
+        <member name="P:UspsValidation.Interfaces.IAddressValidateResponse.Vacant">
+            <summary>
+            Is the location not occupied.
+            </summary>
+        </member>
+    </members>
+</doc>

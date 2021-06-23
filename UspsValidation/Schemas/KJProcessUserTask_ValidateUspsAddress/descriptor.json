@@ -1,0 +1,10 @@
+﻿{
+  "Descriptor": {
+    "UId": "4be438e3-d82d-42b9-90a6-3d8e36f9a7f3",
+    "Name": "KJProcessUserTask_ValidateUspsAddress",
+    "ModifiedOnUtc": "\/Date(1624443492000)\/",
+    "ManagerName": "ProcessUserTaskSchemaManager",
+    "Caption": "Validate Usps Address",
+    "DependsOn": []
+  }
+}

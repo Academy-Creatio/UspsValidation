@@ -1,0 +1,13 @@
+﻿{
+  "Descriptor": {
+    "UId": "383d38b3-57b9-4115-a867-b33cd98346ed",
+    "Name": "KJUspsAction",
+    "ModifiedOnUtc": "\/Date(1624438996000)\/",
+    "Parent": {
+      "UId": "11ab4bcb-9b23-4b6d-9c86-520fae925d75",
+      "Name": "BaseLookup"
+    },
+    "ManagerName": "EntitySchemaManager",
+    "Caption": "USPS Action"
+  }
+}

@@ -1,0 +1,9 @@
+﻿{
+  "Descriptor": {
+    "UId": "7663fcfc-a485-4b67-a00c-ea95e2c382ce",
+    "Name": "KJProcess_ValidateUspsAddress",
+    "ModifiedOnUtc": "\/Date(1624443006000)\/",
+    "ManagerName": "ProcessSchemaManager",
+    "Caption": "Validate USPS Address"
+  }
+}

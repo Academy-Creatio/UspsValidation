@@ -1,0 +1,17 @@
+﻿{
+  "Descriptor": {
+    "UId": "f557e6e7-1b28-40a7-8691-670ff616d7b3",
+    "PackageVersion": "7.8.0",
+    "Name": "UspsValidation",
+    "ModifiedOnUtc": "\/Date(1623139712000)\/",
+    "Maintainer": "Customer",
+    "Description": "USPS Address Validation\nhttps://github.com/Academy-Creatio/UspsValidation",
+    "DependsOn": [
+      {
+        "UId": "2fabaf6c-0f92-4530-aef8-40345c021da2",
+        "PackageVersion": "7.8.0",
+        "Name": "ProductCore"
+      }
+    ]
+  }
+}
